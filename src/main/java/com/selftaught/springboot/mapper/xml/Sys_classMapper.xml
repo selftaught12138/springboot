@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.selftaught.springboot.mapper.Sys_classMapper" >
+  <resultMap id="BaseResultMap" type="com.selftaught.springboot.entity.Sys_class" >
+    <id column="C_ID" property="cId" jdbcType="VARCHAR" />
+    <result column="C_NAME" property="cName" jdbcType="VARCHAR" />
+    <result column="C_TYPE" property="cType" jdbcType="VARCHAR" />
+    <result column="BEIZHU" property="beizhu" jdbcType="VARCHAR" />
+    <result column="CREARETIME" property="crearetime" jdbcType="VARCHAR" />
+    <result column="BEGINTIME" property="begintime" jdbcType="VARCHAR" />
+    <result column="ENDTIME" property="endtime" jdbcType="VARCHAR" />
+    <result column="STATU" property="statu" jdbcType="VARCHAR" />
+    <result column="B_ID" property="bId" jdbcType="VARCHAR" />
+    <result column="X_ID" property="xId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    C_ID, C_NAME, C_TYPE, BEIZHU, CREARETIME, BEGINTIME, ENDTIME, STATU, B_ID, X_ID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from SYS_CLASS
+    where C_ID = #{cId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from SYS_CLASS
+    where C_ID = #{cId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.selftaught.springboot.entity.Sys_class" >
+    insert into SYS_CLASS (C_ID, C_NAME, C_TYPE, 
+      BEIZHU, CREARETIME, BEGINTIME, 
+      ENDTIME, STATU, B_ID, 
+      X_ID)
+    values (#{cId,jdbcType=VARCHAR}, #{cName,jdbcType=VARCHAR}, #{cType,jdbcType=VARCHAR}, 
+      #{beizhu,jdbcType=VARCHAR}, #{crearetime,jdbcType=VARCHAR}, #{begintime,jdbcType=VARCHAR}, 
+      #{endtime,jdbcType=VARCHAR}, #{statu,jdbcType=VARCHAR}, #{bId,jdbcType=VARCHAR}, 
+      #{xId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.selftaught.springboot.entity.Sys_class" >
+    insert into SYS_CLASS
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cId != null" >
+        C_ID,
+      </if>
+      <if test="cName != null" >
+        C_NAME,
+      </if>
+      <if test="cType != null" >
+        C_TYPE,
+      </if>
+      <if test="beizhu != null" >
+        BEIZHU,
+      </if>
+      <if test="crearetime != null" >
+        CREARETIME,
+      </if>
+      <if test="begintime != null" >
+        BEGINTIME,
+      </if>
+      <if test="endtime != null" >
+        ENDTIME,
+      </if>
+      <if test="statu != null" >
+        STATU,
+      </if>
+      <if test="bId != null" >
+        B_ID,
+      </if>
+      <if test="xId != null" >
+        X_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cId != null" >
+        #{cId,jdbcType=VARCHAR},
+      </if>
+      <if test="cName != null" >
+        #{cName,jdbcType=VARCHAR},
+      </if>
+      <if test="cType != null" >
+        #{cType,jdbcType=VARCHAR},
+      </if>
+      <if test="beizhu != null" >
+        #{beizhu,jdbcType=VARCHAR},
+      </if>
+      <if test="crearetime != null" >
+        #{crearetime,jdbcType=VARCHAR},
+      </if>
+      <if test="begintime != null" >
+        #{begintime,jdbcType=VARCHAR},
+      </if>
+      <if test="endtime != null" >
+        #{endtime,jdbcType=VARCHAR},
+      </if>
+      <if test="statu != null" >
+        #{statu,jdbcType=VARCHAR},
+      </if>
+      <if test="bId != null" >
+        #{bId,jdbcType=VARCHAR},
+      </if>
+      <if test="xId != null" >
+        #{xId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.selftaught.springboot.entity.Sys_class" >
+    update SYS_CLASS
+    <set >
+      <if test="cName != null" >
+        C_NAME = #{cName,jdbcType=VARCHAR},
+      </if>
+      <if test="cType != null" >
+        C_TYPE = #{cType,jdbcType=VARCHAR},
+      </if>
+      <if test="beizhu != null" >
+        BEIZHU = #{beizhu,jdbcType=VARCHAR},
+      </if>
+      <if test="crearetime != null" >
+        CREARETIME = #{crearetime,jdbcType=VARCHAR},
+      </if>
+      <if test="begintime != null" >
+        BEGINTIME = #{begintime,jdbcType=VARCHAR},
+      </if>
+      <if test="endtime != null" >
+        ENDTIME = #{endtime,jdbcType=VARCHAR},
+      </if>
+      <if test="statu != null" >
+        STATU = #{statu,jdbcType=VARCHAR},
+      </if>
+      <if test="bId != null" >
+        B_ID = #{bId,jdbcType=VARCHAR},
+      </if>
+      <if test="xId != null" >
+        X_ID = #{xId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where C_ID = #{cId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.selftaught.springboot.entity.Sys_class" >
+    update SYS_CLASS
+    set C_NAME = #{cName,jdbcType=VARCHAR},
+      C_TYPE = #{cType,jdbcType=VARCHAR},
+      BEIZHU = #{beizhu,jdbcType=VARCHAR},
+      CREARETIME = #{crearetime,jdbcType=VARCHAR},
+      BEGINTIME = #{begintime,jdbcType=VARCHAR},
+      ENDTIME = #{endtime,jdbcType=VARCHAR},
+      STATU = #{statu,jdbcType=VARCHAR},
+      B_ID = #{bId,jdbcType=VARCHAR},
+      X_ID = #{xId,jdbcType=VARCHAR}
+    where C_ID = #{cId,jdbcType=VARCHAR}
+  </update>
+</mapper>

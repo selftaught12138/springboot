@@ -1,0 +1,23 @@
+server:
+  port: 8080 #配置项目访问端口
+
+spring:
+  datasource:
+    name: test #配置数据库连接名称
+    url: jdbc:oracle:thin:@localhost:1521:orcl #配置数据路连接url
+    username: springboot #配置数据库连接用户名
+    password: root #配置数据库连接密码
+    driver-class-name: oracle.jdbc.driver.OracleDriver #配置数据库连接驱动
+  mvc:
+    view:
+      prefix: classpath:/templates/** #配置MVC跳转页面前缀
+      suffix: .html #配置MVC跳转页面后缀
+    static-path-pattern: /static/** #配置MVC页面静态资源文件路径
+  thymeleaf:
+    cache: false
+    enabled: false
+mybatis:
+  mapper-locations: classpath:com.selftaught.mapper.xml/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
+  type-aliases-package: com.selftaught.entity  # 注意：对应实体类的路径
+  configuration:
+    call-setters-on-nulls: true

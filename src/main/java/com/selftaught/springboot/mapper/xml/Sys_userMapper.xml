@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.selftaught.springboot.mapper.Sys_userMapper" >
+  <resultMap id="BaseResultMap" type="com.selftaught.springboot.entity.Sys_user" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="USERID" property="userid" jdbcType="VARCHAR" />
+    <result column="USERNAME" property="username" jdbcType="VARCHAR" />
+    <result column="USERPWD" property="userpwd" jdbcType="VARCHAR" />
+    <result column="BRITHDAY" property="brithday" jdbcType="VARCHAR" />
+    <result column="SEX" property="sex" jdbcType="VARCHAR" />
+    <result column="ADDERSS" property="adderss" jdbcType="VARCHAR" />
+    <result column="TEL" property="tel" jdbcType="VARCHAR" />
+    <result column="BIYESCHOOL" property="biyeschool" jdbcType="VARCHAR" />
+    <result column="XUELI" property="xueli" jdbcType="VARCHAR" />
+    <result column="WORKTIME" property="worktime" jdbcType="VARCHAR" />
+    <result column="ZHUCETIME" property="zhucetime" jdbcType="VARCHAR" />
+    <result column="STATU" property="statu" jdbcType="VARCHAR" />
+    <result column="ROLE_ID" property="roleId" jdbcType="VARCHAR" />
+    <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, USERID, USERNAME, USERPWD, BRITHDAY, SEX, ADDERSS, TEL, BIYESCHOOL, XUELI, WORKTIME, 
+    ZHUCETIME, STATU, ROLE_ID, USER_NAME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from SYS_USER
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from SYS_USER
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.selftaught.springboot.entity.Sys_user" >
+    insert into SYS_USER (ID, USERID, USERNAME, 
+      USERPWD, BRITHDAY, SEX, 
+      ADDERSS, TEL, BIYESCHOOL, 
+      XUELI, WORKTIME, ZHUCETIME, 
+      STATU, ROLE_ID, USER_NAME
+      )
+    values (#{id,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{userpwd,jdbcType=VARCHAR}, #{brithday,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
+      #{adderss,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{biyeschool,jdbcType=VARCHAR}, 
+      #{xueli,jdbcType=VARCHAR}, #{worktime,jdbcType=VARCHAR}, #{zhucetime,jdbcType=VARCHAR}, 
+      #{statu,jdbcType=VARCHAR}, #{roleId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.selftaught.springboot.entity.Sys_user" >
+    insert into SYS_USER
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="userid != null" >
+        USERID,
+      </if>
+      <if test="username != null" >
+        USERNAME,
+      </if>
+      <if test="userpwd != null" >
+        USERPWD,
+      </if>
+      <if test="brithday != null" >
+        BRITHDAY,
+      </if>
+      <if test="sex != null" >
+        SEX,
+      </if>
+      <if test="adderss != null" >
+        ADDERSS,
+      </if>
+      <if test="tel != null" >
+        TEL,
+      </if>
+      <if test="biyeschool != null" >
+        BIYESCHOOL,
+      </if>
+      <if test="xueli != null" >
+        XUELI,
+      </if>
+      <if test="worktime != null" >
+        WORKTIME,
+      </if>
+      <if test="zhucetime != null" >
+        ZHUCETIME,
+      </if>
+      <if test="statu != null" >
+        STATU,
+      </if>
+      <if test="roleId != null" >
+        ROLE_ID,
+      </if>
+      <if test="userName != null" >
+        USER_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpwd != null" >
+        #{userpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="brithday != null" >
+        #{brithday,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="adderss != null" >
+        #{adderss,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="biyeschool != null" >
+        #{biyeschool,jdbcType=VARCHAR},
+      </if>
+      <if test="xueli != null" >
+        #{xueli,jdbcType=VARCHAR},
+      </if>
+      <if test="worktime != null" >
+        #{worktime,jdbcType=VARCHAR},
+      </if>
+      <if test="zhucetime != null" >
+        #{zhucetime,jdbcType=VARCHAR},
+      </if>
+      <if test="statu != null" >
+        #{statu,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null" >
+        #{roleId,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.selftaught.springboot.entity.Sys_user" >
+    update SYS_USER
+    <set >
+      <if test="userid != null" >
+        USERID = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        USERNAME = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpwd != null" >
+        USERPWD = #{userpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="brithday != null" >
+        BRITHDAY = #{brithday,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        SEX = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="adderss != null" >
+        ADDERSS = #{adderss,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        TEL = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="biyeschool != null" >
+        BIYESCHOOL = #{biyeschool,jdbcType=VARCHAR},
+      </if>
+      <if test="xueli != null" >
+        XUELI = #{xueli,jdbcType=VARCHAR},
+      </if>
+      <if test="worktime != null" >
+        WORKTIME = #{worktime,jdbcType=VARCHAR},
+      </if>
+      <if test="zhucetime != null" >
+        ZHUCETIME = #{zhucetime,jdbcType=VARCHAR},
+      </if>
+      <if test="statu != null" >
+        STATU = #{statu,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null" >
+        ROLE_ID = #{roleId,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.selftaught.springboot.entity.Sys_user" >
+    update SYS_USER
+    set USERID = #{userid,jdbcType=VARCHAR},
+      USERNAME = #{username,jdbcType=VARCHAR},
+      USERPWD = #{userpwd,jdbcType=VARCHAR},
+      BRITHDAY = #{brithday,jdbcType=VARCHAR},
+      SEX = #{sex,jdbcType=VARCHAR},
+      ADDERSS = #{adderss,jdbcType=VARCHAR},
+      TEL = #{tel,jdbcType=VARCHAR},
+      BIYESCHOOL = #{biyeschool,jdbcType=VARCHAR},
+      XUELI = #{xueli,jdbcType=VARCHAR},
+      WORKTIME = #{worktime,jdbcType=VARCHAR},
+      ZHUCETIME = #{zhucetime,jdbcType=VARCHAR},
+      STATU = #{statu,jdbcType=VARCHAR},
+      ROLE_ID = #{roleId,jdbcType=VARCHAR},
+      USER_NAME = #{userName,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
